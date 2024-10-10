@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Buy unique Diwali lights from Dordili - the perfect lights to brighten your Diwali celebration. Enjoy discounts and offers!">
+    <title>Dordili - Diwali Lights Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center; /* Center align everything */
+        }
+        header {
+            background-color: #ffcc00;
+            padding: 20px;
+        }
+        header img {
+            width: 120px;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .offers {
+            background-color: #ffcc00;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center products */
+        }
+        .product {
+            width: 30%;
+            margin: 10px;
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center align product details */
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .product h3 {
+            margin: 10px 0;
+        }
+        .product p {
+            font-size: 16px;
+        }
+        .product button {
+            padding: 10px 20px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cart-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+        .cart-icon img {
+            width: 100%;
+            height: 100%;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .quote {
+            font-size: 20px;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+        .hidden {
+            display: none;
+        }
+        .address-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .address-form input {
+            width: 80%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .quantity {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .quantity button {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Screenshot_2024-10-05_021127-removebg-preview.png" alt="Dordili Logo">
+    </header>
+
+    <div class="container">
+        <!-- Offers Section -->
+        <div class="section offers">
+            <h2>Special Offers</h2>
+            <p>🎉 Free delivery on orders over ₹399! 🎉</p>
+            <p>💰 Get ₹50 off on orders above ₹649! 💰</p>
+            <p>🎊 Enjoy ₹100 off on purchases over ₹999! 🎊</p>
+        </div>
+
+        <!-- Products Section -->
+        <div class="section products" id="products-section">
+            <h2>Diwali Lights Collection</h2>
+            <div class="product" id="product-1">
+                <img src="images/light1.jpg" alt="Light 1">
+                <h3>Light 1</h3>
+                <p><strike>₹799</strike> ₹699</p>
+                <button onclick="addToCart(1)">Add to Cart</button>
+            </div>
+            <div class="product" id="product-2">
+                <img src="images/light2.jpg" alt="Light 2">
+                <h3>Light 2</h3>
+                <p><strike>₹999</strike> ₹849</p>
+                <button onclick="addToCart(2)">Add to Cart</button>
+            </div>
+            <div class="product" id="product-3">
+                <img src="images/light3.jpg" alt="Light 3">
+                <h3>Light 3</h3>
+                <p><strike>₹1299</strike> ₹1099</p>
+                <button onclick="addToCart(3)">Add to Cart</button>
+            </div>
+            <div class="product" id="product-4">
+                <img src="images/light4.jpg" alt="Light 4">
+                <h3>Light 4</h3>
+                <p><strike>₹899</strike> ₹749</p>
+                <button onclick="addToCart(4)">Add to Cart</button>
+            </div>
+            <div class="product" id="product-5">
+                <img src="images/light5.jpg" alt="Light 5">
+                <h3>Light 5</h3>
+                <p><strike>₹699</strike> ₹599</p>
+                <button onclick="addToCart(5)">Add to Cart</button>
+            </div>
+            <div class="product" id="product-6">
+                <img src="images/light6.jpg" alt="Light 6">
+                <h3>Light 6</h3>
+                <p><strike>₹1099</strike> ₹899</p>
+                <button onclick="addToCart(6)">Add to Cart</button>
+            </div>
+            <div class="product" id="product-7">
+                <img src="images/light7.jpg" alt="Light 7">
+                <h3>Light 7</h3>
+                <p><strike>₹799</strike> ₹649</p>
+                <button onclick="addToCart(7)">Add to Cart</button>
+            </div>
+            <div class="product" id="product-8">
+                <img src="images/light8.jpg" alt="Light 8">
+                <h3>Light 8</h3>
+                <p><strike>₹999</strike> ₹749</p>
+                <button onclick="addToCart(8)">Add to Cart</button>
+            </div>
+            <div class="product" id="product-9">
+                <img src="images/light9.jpg" alt="Light 9">
+                <h3>Light 9</h3>
+                <p><strike>₹1399</strike> ₹1099</p>
+                <button onclick="addToCart(9)">Add to Cart</button>
+            </div>
+            <div class="product" id="product-10">
+                <img src="images/light10.jpg" alt="Light 10">
+                <h3>Light 10</h3>
+                <p><strike>₹1199</strike> ₹999</p>
+                <button onclick="addToCart(10)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-icon" onclick="viewCart()">
+        <img src="images/cart_icon.png" alt="Cart Icon">
+    </div>
+
+    <footer>
+        <p>Rules: 7-day replacement or refund only if the product is damaged.</p>
+        <p>Contact details: WhatsApp number: <a href="tel:+919334007868">+91 93340 07868</a> | 
+        <a href="https://www.facebook.com/Dordili" target="_blank">Facebook</a> | 
+        <a href="https://www.instagram.com/Dordili" target="_blank">Instagram</a> | 
+        <a href="mailto:shinedordili@gmail.com">Email</a></p>
+        <p class="quote">Diwali ke time itna mat socho, Dordili ke lights mangwao aur Diwali ki vibe enjoy karo!</p>
+    </footer>
+
+    <script>
+        let cart = [];
+        const productDetails = [
+            { id: 1, name: "Light 1", price: 699, img: "images/light1.jpg" },
+            { id: 2, name: "Light 2", price: 849, img: "images/light2.jpg" },
+            { id: 3, name: "Light 3", price: 1099, img: "images/light3.jpg" },
+            { id: 4, name: "Light 4", price: 749, img: "images/light4.jpg" },
+            { id: 5, name: "Light 5", price: 599, img: "images/light5.jpg" },
+            { id: 6, name: "Light 6", price: 899, img: "images/light6.jpg" },
+            { id: 7, name: "Light 7", price: 649, img: "images/light7.jpg" },
+            { id: 8, name: "Light 8", price: 749, img: "images/light8.jpg" },
+            { id: 9, name: "Light 9", price: 1099, img: "images/light9.jpg" },
+            { id: 10, name: "Light 10", price: 999, img: "images/light10.jpg" }
+        ];
+
+        function addToCart(productId) {
+            const product = productDetails.find(p => p.id === productId);
+            const cartItem = cart.find(item => item.id === productId);
+            if (cartItem) {
+                cartItem.quantity += 1; // Increase quantity if already in cart
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            alert(`${product.name} added to cart!`);
+            localStorage.setItem('cart', JSON.stringify(cart)); // Save cart to local storage
+        }
+
+        function viewCart() {
+            const cartHtml = `
+                <div style="text-align:center; padding:20px;">
+                    <h2>Your Cart</h2>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        ${cart.map(item => `
+                            <div style="margin: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                                <img src="${item.img}" alt="${item.name}" style="width: 100px;">
+                                <h4>${item.name}</h4>
+                                <p>Price: ₹${item.price} x ${item.quantity}</p>
+                                <div class="quantity">
+                                    <button onclick="updateQuantity(${item.id}, 'decrease')">-</button>
+                                    <span>${item.quantity}</span>
+                                    <button onclick="updateQuantity(${item.id}, 'increase')">+</button>
+                                </div>
+                                <button onclick="removeFromCart(${item.id})">Remove</button>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <h3>Total: ₹${calculateTotal()}</h3>
+                    <button onclick="checkout()">Proceed to Checkout</button>
+                </div>
+            `;
+            const cartWindow = window.open("", "Cart", "width=400,height=600");
+            cartWindow.document.write(cartHtml);
+        }
+
+        function updateQuantity(productId, action) {
+            const cartItem = cart.find(item => item.id === productId);
+            if (action === 'increase') {
+                cartItem.quantity += 1;
+            } else if (action === 'decrease' && cartItem.quantity > 1) {
+                cartItem.quantity -= 1;
+            }
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update cart in local storage
+            viewCart(); // Refresh cart view
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update cart in local storage
+            viewCart(); // Refresh cart view
+        }
+
+        function calculateTotal() {
+            return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+        }
+
+        function checkout() {
+            const checkoutHtml = `
+                <div style="text-align:center; padding:20px;">
+                    <h2>Checkout</h2>
+                    <form class="address-form" onsubmit="return false;">
+                        <input type="text" placeholder="Full Name" required>
+                        <input type="text" placeholder="Street Address" required>
+                        <input type="text" placeholder="City" required>
+                        <input type="text" placeholder="State" required>
+                        <input type="text" placeholder="Zip Code" required>
+                        <input type="tel" placeholder="Mobile Number" required>
+                        <button type="submit" onclick="generateQRCode()">Proceed to Pay</button>
+                    </form>
+                    <div id="qr-code" class="hidden">
+                        <h3>QR Code</h3>
+                        <img src="images/qr_code_placeholder.png" alt="QR Code" style="width: 200px; height: 200px;">
+                        <p>Share the screenshot of your payment on WhatsApp at +919334007868.</p>
+                    </div>
+                </div>
+            `;
+            const checkoutWindow = window.open("", "Checkout", "width=400,height=600");
+            checkoutWindow.document.write(checkoutHtml);
+        }
+
+        function generateQRCode() {
+            const total = calculateTotal();
+            const qrCodeUrl = `https://upi.example.com/pay?amount=${total}`; // Replace with actual QR code generation logic
+            const qrCodeImage = document.getElementById('qr-code').querySelector('img');
+            qrCodeImage.src = qrCodeUrl; // Set the generated QR code image source
+            document.getElementById('qr-code').classList.remove('hidden'); // Show QR code
+        }
+    </script>
+</body>
+</html>

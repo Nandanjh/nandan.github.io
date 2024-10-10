@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Buy unique Diwali lights from Dordili - the perfect lights to brighten your Diwali celebration. Enjoy discounts and offers!">
+    <title>Dordili - Diwali Lights Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center; /* Center align everything */
+        }
+        header {
+            background-color: #2c2e2a;
+            padding: 20px;
+        }
+        header img {
+            width: 120px;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .offers {
+            background-color: #ffcc00;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center products */
+        }
+        .product {
+            width: 30%;
+            margin: 10px;
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center align product details */
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .product h3 {
+            margin: 10px 0;
+        }
+        .product p {
+            font-size: 16px;
+        }
+        .product button {
+            padding: 10px 20px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cart-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+        .cart-icon img {
+            width: 100%;
+            height: 100%;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .quote {
+            font-size: 20px;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Screenshot_2024-10-05_021127-removebg-preview.png" alt="Dordili Logo">
+    </header>
+
+    <div class="container">
+        <!-- Offers Section -->
+        <div class="section offers">
+            <h2>Special Offers</h2>
+            <p>🎉 Free delivery on orders over ₹399! 🎉</p>
+            <p>💰 Get ₹50 off on orders above ₹649! 💰</p>
+            <p>🎊 Enjoy ₹100 off on purchases over ₹999! 🎊</p>
+        </div>
+
+        <!-- Products Section -->
+        <div class="section products" id="products-section">
+            
+            <div class="product" id="product-1">
+                <img src="IMG_0601.PNG" alt="Star Crackle light">
+                <h3>Star Crackle Light</h3>
+                <p><strike>₹799</strike> ₹699</p>
+                <button onclick="addToCart(1)">Add to Cart</button>
+            </div>
+            <div class="product" id="product-2">
+                <img src="IMG_0608.PNG" alt="Light 2">
+                <h3>Heart crackle light</h3>
+                <p><strike>₹999</strike> ₹849</p>
+                <button onclick="addToCart(2)">Add to Cart</button>
+            </div>
+            <div class="product" id="product-3">
+                <img src="IMG_0616.PNG" alt="Light 3">
+                <h3>Bell crackle light</h3>
+                <p><strike>₹1299</strike> ₹1099</p>
+                <button onclick="addToCart(3)">Add to Cart</button>
+            </div>
+            <div class="product" id="product-4">
+                <img src="IMG_0617.PNG" alt="Light 4">
+                <h3>Star string light</h3>
+                <p><strike>₹899</strike> ₹749</p>
+                <button onclick="addToCart(4)">Add to Cart</button>
+            </div>
+            <div class="product" id="product-5">
+                <img src="IMG_0619.PNG" alt="Light 5">
+                <h3>Happy cloud string light</h3>
+                <p><strike>₹699</strike> ₹599</p>
+                <button onclick="addToCart(5)">Add to Cart</button>
+            </div>
+            <div class="product" id="product-6">
+                <img src="IMG_0625.PNG" alt="Light 6">
+                <h3>Drop gel lights</h3>
+                <p><strike>₹1099</strike> ₹899</p>
+                <button onclick="addToCart(6)">Add to Cart</button>
+            </div>
+            <div class="product" id="product-7">
+                <img src="IMG_0629.PNG" alt="Light 7">
+                <h3>Four way outdoor light</h3>
+                <p><strike>₹799</strike> ₹649</p>
+                <button onclick="addToCart(7)">Add to Cart</button>
+            </div>
+            <div class="product" id="product-8">
+                <img src="IMG_0633.PNG" alt="Light 8">
+                <h3>Metal star light</h3>
+                <p><strike>₹999</strike> ₹749</p>
+                <button onclick="addToCart(8)">Add to Cart</button>
+            </div>
+            <div class="product" id="product-9">
+                <img src="IMG_0636.PNG" alt="Light 9">
+                <h3>Remote controlled fairy waterfall</h3>
+                <p><strike>₹1399</strike> ₹1099</p>
+                <button onclick="addToCart(9)">Add to Cart</button>
+            </div>
+            <div class="product" id="product-10">
+                <img src="Screenshot 2024-10-09 224136.png" alt="Light 10">
+                <h3>Neon running rope light</h3>
+                <p><strike>₹1199</strike> ₹999</p>
+                <button onclick="addToCart(10)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-icon" onclick="viewCart()">
+        <img src="Designer (15).jpeg" alt="Cart Icon">
+    </div>
+
+    <footer>
+        <p>Rules: 7-day replacement or refund only if the product is damaged.</p>
+        <p>Contact details: WhatsApp number: <a href="tel:+919334007868">+91 93340 07868</a> | 
+        <a href="https://www.facebook.com/Dordili" target="_blank">Facebook</a> | 
+        <a href="https://www.instagram.com/Dordili" target="_blank">Instagram</a> | 
+        <a href="mailto:shinedordili@gmail.com">Email</a></p>
+        <p class="quote">Diwali ke time itna mat socho, Dordili ke lights mangwao aur Diwali ki vibe enjoy karo!</p>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function addToCart(productId) {
+            const cartItem = cart.find(item => item.id === productId);
+            if (cartItem) {
+                cartItem.quantity += 1; // Increase quantity if already in cart
+            } else {
+                cart.push({ id: productId, quantity: 1 });
+            }
+            alert(`Product ${productId} added to cart!`);
+            localStorage.setItem('cart', JSON.stringify(cart)); // Save cart to local storage
+        }
+
+        function viewCart() {
+            window.location.href = "cart.html"; // Redirect to the cart page
+        }
+    </script>
+</body>
+</html>
+
+
+
+

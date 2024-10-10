@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Review your cart and proceed to checkout for unique Diwali lights from Dordili.">
+    <title>Your Cart - Dordili</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center; /* Center align everything */
+        }
+        header {
+            background-color: #292723;
+            padding: 20px;
+        }
+        header img {
+            width: 120px;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between; /* Space out items */
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .quantity {
+            display: flex;
+            align-items: center;
+        }
+        .quantity button {
+            margin: 0 5px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .quote {
+            font-size: 20px;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+        .offers {
+            background-color: #ffcc00;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 80%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Screenshot_2024-10-05_021127-removebg-preview.png" alt="Dordili Logo">
+    </header>
+
+    <div class="container">
+        <h2>Your Cart</h2>
+
+        <!-- Offers Section -->
+        <div class="section offers">
+            <h2>Special Offers</h2>
+            <p>🎉 Free delivery on orders over ₹399! 🎉</p>
+            <p>💰 Get ₹50 off on orders above ₹649! 💰</p>
+            <p>🎊 Enjoy ₹100 off on purchases over ₹999! 🎊</p>
+        </div>
+
+        <div id="cart-items"></div>
+        <h3>Total: ₹<span id="total-price">0</span></h3>
+        <button onclick="checkout()">Proceed to Checkout</button>
+    </div>
+
+    <footer>
+        <p>Rules: 7-day replacement or refund only if the product is damaged.</p>
+        <p>Contact details: WhatsApp number: <a href="tel:+919334007868">+91 93340 07868</a> | 
+        <a href="https://www.facebook.com/Dordili" target="_blank">Facebook</a> | 
+        <a href="https://www.instagram.com/Dordili" target="_blank">Instagram</a> | 
+        <a href="mailto:shinedordili@gmail.com">Email</a></p>
+        <p class="quote">Diwali ke time itna mat socho, Dordili ke lights mangwao aur Diwali ki vibe enjoy karo!</p>
+    </footer>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function updateCartDisplay() {
+            const cartItemsDiv = document.getElementById('cart-items');
+            const totalPrice = document.getElementById('total-price');
+            cartItemsDiv.innerHTML = '';
+
+            let total = 0;
+
+            cart.forEach(item => {
+                const product = getProductById(item.id);
+                total += product.price * item.quantity;
+
+                const cartItemDiv = document.createElement('div');
+                cartItemDiv.classList.add('cart-item');
+                cartItemDiv.innerHTML = `
+                    <div>
+                        <strong>${product.name}</strong><br>
+                        Price: ₹${product.price} x ${item.quantity}
+                    </div>
+                    <div class="quantity">
+                        <button onclick="updateQuantity(${item.id}, 'decrease')">-</button>
+                        <span>${item.quantity}</span>
+                        <button onclick="updateQuantity(${item.id}, 'increase')">+</button>
+                        <button onclick="removeFromCart(${item.id})">Remove</button>
+                    </div>
+                `;
+                cartItemsDiv.appendChild(cartItemDiv);
+            });
+
+            // Apply discounts based on total amount
+            let discount = 0;
+            if (total > 999) {
+                discount = 100;
+            } else if (total > 649) {
+                discount = 50;
+            } else if (total > 399) {
+                discount = 0; // Free delivery
+            }
+            total -= discount; // Deduct the discount from total
+
+            totalPrice.innerText = total;
+        }
+
+        function getProductById(productId) {
+            const products = [
+                { id: 1, name: "Light 1", price: 699 },
+                { id: 2, name: "Light 2", price: 849 },
+                { id: 3, name: "Light 3", price: 1099 },
+                { id: 4, name: "Light 4", price: 749 },
+                { id: 5, name: "Light 5", price: 599 },
+                { id: 6, name: "Light 6", price: 899 },
+                { id: 7, name: "Light 7", price: 649 },
+                { id: 8, name: "Light 8", price: 749 },
+                { id: 9, name: "Light 9", price: 1099 },
+                { id: 10, name: "Light 10", price: 999 }
+            ];
+            return products.find(p => p.id === productId);
+        }
+
+        function updateQuantity(productId, action) {
+            const cartItem = cart.find(item => item.id === productId);
+            if (action === 'increase') {
+                cartItem.quantity += 1;
+            } else if (action === 'decrease' && cartItem.quantity > 1) {
+                cartItem.quantity -= 1;
+            }
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update cart in local storage
+            updateCartDisplay(); // Refresh cart display
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update cart in local storage
+            updateCartDisplay(); // Refresh cart display
+        }
+
+        function checkout() {
+            const total = document.getElementById('total-price').innerText;
+            const checkoutWindow = document.getElementById('cart-items');
+
+            // Embed Google Form for checkout
+            const formHtml = `
+                <div style="text-align:center; padding:20px;">
+                    <h2>Checkout</h2>
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd76YGFINXQxljyAbvA4Bd8ZVYWRzSIHpf5I56bRRo11tJSNw/viewform?embedded=true"></iframe>
+                </div>
+            `;
+            checkoutWindow.innerHTML = formHtml;
+        }
+
+        // Initial call to display cart
+        updateCartDisplay();
+    </script>
+</body>
+</html>
+
+
+
